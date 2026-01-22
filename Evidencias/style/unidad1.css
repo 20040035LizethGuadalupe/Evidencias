@@ -1,0 +1,28 @@
+.btn-group {
+    display: flex;
+    gap: 25px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.btn-group .btn {
+    min-width: 180px;
+    text-align: center;
+}
+
+.bottom-back {
+    position: fixed;
+    bottom: 25px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 10;
+}
+
+.btn.secondary {
+    background: transparent;
+    border: 2px solid #00eaff;
+    color: #00eaff;
+}
+
