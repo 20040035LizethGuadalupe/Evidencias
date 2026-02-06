@@ -441,3 +441,107 @@ body.home {
     overflow: hidden;
 }
 
+.card-info ul {
+    padding-left: 20px;
+}
+
+.card-info ul li {
+    margin-bottom: 8px;
+    line-height: 1.5;
+}
+
+.unit-title {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: #e5e7eb;
+}
+
+.unit-desc {
+    font-size: 0.9rem;
+    line-height: 1.6;
+    color: #cbd5f5;
+    margin-bottom: 25px;
+    opacity: 0.95;
+}
+
+/* ===== TARJETAS DE UNIDADES ===== */
+.unit-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 35px 30px 40px;
+    border-radius: 25px;
+    gap: 16px;                /* separa texto y botón */
+}
+
+/* Texto */
+.unit-card h3 {
+    color: #00eaff;
+    font-size: 1.4rem;
+}
+
+.unit-card p {
+    color: #cbd5f5;
+    line-height: 1.6;
+    font-size: 0.95rem;
+}
+
+/* Botón */
+.unit-card .btn {
+    align-self: center;       /* lo centra */
+    margin-top: 10px;         /* NO tapa el texto */
+}
+
+/* =========================
+   FOOTER FUTURISTA
+========================= */
+.footer {
+    margin-top: 120px;
+    padding: 50px 30px 25px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(20px);
+    border-top: 1px solid rgba(255,255,255,0.15);
+    position: relative;
+    z-index: 5;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 35px;
+    text-align: center;
+}
+
+.footer-block h4 {
+    color: #00eaff;
+    margin-bottom: 10px;
+    font-size: 1rem;
+    letter-spacing: 1px;
+}
+
+.footer-block p,
+.footer-block a {
+    font-size: 0.9rem;
+    color: #e5e7eb;
+    text-decoration: none;
+}
+
+.footer-block a:hover {
+    color: #00eaff;
+    text-shadow: 0 0 10px rgba(0,234,255,0.6);
+}
+
+.footer-bottom {
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.12);
+    text-align: center;
+    font-size: 0.85rem;
+    color: #cbd5f5;
+    opacity: 0.85;
+}
+
+

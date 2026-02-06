@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 1 | Portafolio</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style/unidad1.css">
+    <link rel="stylesheet" href="style/home.css">
+</head>
+<body>
+
+<!-- BACKGROUND -->
+<div id="bg">
+    <canvas id="c1"></canvas>
+    <div class="bg-image"></div>
+    <div class="gradient-overlay"></div>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+    <div class="logo">Unidad 1</div>
+    <ul class="menu">
+        <li><a href="perfil.html">Perfiles</a></li>
+    </ul>
+</nav>
+
+<!-- CONTENIDO -->
+<main class="center-box">
+    <h1 class="neon">Introducción al Desarrollo Web Orientado a Servicios</h1>
+
+    <section class="info-cards">
+
+    <div class="card-info big-card">
+
+    <h2 class="unit-title">Saber 1</h2>
+
+    <!-- IMAGEN PRINCIPAL -->
+    <img src="img/soa.png" class="unit-img" alt="Arquitectura SOA">
+
+    <p class="unit-desc">
+        La presente unidad introduce los fundamentos del desarrollo de aplicaciones web orientadas a servicios,
+        un enfoque moderno que permite crear sistemas distribuidos, escalables e interoperables.
+    </p>
+
+    <hr class="divider">
+
+    <!-- SECCIÓN 1 -->
+    <h4>1. Paradigma del Desarrollo Orientado a Servicios</h4>
+
+    <img src="img/cloud.png" class="unit-img small" alt="Servicios en la nube">
+
+    <p>
+        El paradigma orientado a servicios se basa en la creación de servicios independientes que pueden ser
+        utilizados por diferentes aplicaciones a través de la red, principalmente mediante tecnologías web.
+    </p>
+
+    <h5>Servicios que se ofrecen en la nube</h5>
+    <ul>
+        <li><strong>IaaS:</strong> Infraestructura como servidores, redes y almacenamiento.</li>
+        <li><strong>PaaS:</strong> Plataformas para desarrollar y ejecutar aplicaciones.</li>
+        <li><strong>SaaS:</strong> Aplicaciones completas accesibles vía internet.</li>
+    </ul>
+
+    <h5>Características de las aplicaciones orientadas a servicios</h5>
+    <ul>
+        <li>Modularidad</li>
+        <li>Interoperabilidad</li>
+        <li>Reutilización</li>
+        <li>Bajo acoplamiento</li>
+        <li>Escalabilidad</li>
+    </ul>
+
+    <h5>Aplicaciones Web Híbridas (Mashup)</h5>
+    <p>
+        Las aplicaciones Mashup combinan datos y funcionalidades de múltiples servicios mediante APIs,
+        creando soluciones más completas y dinámicas.
+    </p>
+
+    <ul>
+        <li>Integración de APIs externas</li>
+        <li>Uso de datos en tiempo real</li>
+        <li>Mayor funcionalidad con menor desarrollo</li>
+    </ul>
+
+    <hr class="divider">
+
+    <!-- SECCIÓN 2 -->
+    <h4>2. Arquitectura Orientada a Servicios (SOA)</h4>
+
+    <img src="img/standards.png" class="unit-img small" alt="Diagrama SOA">
+
+    <p>
+        La Arquitectura Orientada a Servicios (SOA) es un modelo de diseño que organiza las aplicaciones
+        como un conjunto de servicios independientes que se comunican mediante protocolos estándar.
+    </p>
+
+    <h5>Principios de diseño en SOA</h5>
+    <ul>
+        <li>Servicios autónomos</li>
+        <li>Contrato de servicios</li>
+        <li>Reutilización</li>
+        <li>Bajo acoplamiento</li>
+        <li>Interoperabilidad</li>
+    </ul>
+
+    <hr class="divider">
+
+    <!-- ESTÁNDARES -->
+    <h4>Estándares y Tecnologías</h4>
+    <ul>
+        <li><strong>XML:</strong> Estructuración y transporte de datos.</li>
+        <li><strong>SOAP:</strong> Intercambio de mensajes entre servicios.</li>
+        <li><strong>WSDL:</strong> Descripción de servicios web.</li>
+        <li><strong>UDDI:</strong> Registro y descubrimiento de servicios.</li>
+        <li><strong>REST:</strong> Servicios ligeros basados en HTTP.</li>
+    </ul>
+
+</div>
+
+<!-- BOTONES INFERIORES -->
+<div class="bottom-back buttons-group">
+    <a href="pdf/saber_hacer1.pdf" class="btn secondary" target="_blank" rel="noopener noreferrer">
+        Saber Hacer 1
+    </a>
+
+    <a href="pdf/saber_hacer2.pdf" class="btn secondary" target="_blank" rel="noopener noreferrer">
+        Saber Hacer 2
+    </a>
+
+    <a href="actividades.html" class="btn secondary">
+        Volver a Actividades
+    </a>
+</div>
+
+</section>
+
+</main>
+
+<!-- SCRIPT CANVAS -->
+<script>
+(function(){
+    const canvas = document.getElementById('c1');
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    const p = [];
+
+    function resize(){
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    for(let i=0;i<50;i++){
+        p.push({
+            x: Math.random()*w,
+            y: Math.random()*h,
+            r: 1+Math.random()*2,
+            vx:(Math.random()-.5)*.3,
+            vy:(Math.random()-.5)*.3,
+            a:.05+Math.random()*.1
+        });
+    }
+
+    function draw(){
+        ctx.clearRect(0,0,w,h);
+        for(let i of p){
+            i.x+=i.vx; i.y+=i.vy;
+            if(i.x<0)i.x=w;if(i.x>w)i.x=0;
+            if(i.y<0)i.y=h;if(i.y>h)i.y=0;
+
+            const g=ctx.createRadialGradient(i.x,i.y,0,i.x,i.y,i.r*15);
+            g.addColorStop(0,`rgba(0,234,255,${i.a})`);
+            g.addColorStop(1,'rgba(0,234,255,0)');
+            ctx.fillStyle=g;
+            ctx.fillRect(i.x-i.r*15,i.y-i.r*15,i.r*30,i.r*30);
+        }
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+</script>
+
+</body>
+</html>
