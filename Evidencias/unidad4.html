@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 4 - En mantenimiento</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style/home.css">
+    <link rel="stylesheet" href="style/mantenimiento.css">
+</head>
+<body>
+
+<!-- BACKGROUND -->
+<div id="bg">
+    <canvas id="c1"></canvas>
+    <div class="bg-image"></div>
+    <div class="gradient-overlay"></div>
+</div>
+
+<!-- NAV -->
+<nav class="navbar">
+    <div class="logo">Unidad 4</div>
+    <ul class="menu">
+        <li><a href="perfil.html">Perfiles</a></li>
+    </ul>
+</nav>
+
+<!-- CONTENIDO -->
+<main class="center-box">
+    <h1 class="neon">Página en mantenimiento</h1>
+    <p class="subtitle">
+        Esta sección se encuentra actualmente en desarrollo.<br>
+        Próximamente estará disponible.
+    </p>
+
+    <div class="maintenance-icon">⚙️</div>
+</main>
+
+<!-- BOTÓN VOLVER -->
+<div class="bottom-back">
+    <a href="actividades.html" class="btn secondary">Volver a Actividades</a>
+</div>
+
+<!-- CANVAS SCRIPT -->
+<script>
+(function(){
+    const canvas = document.getElementById('c1');
+    if (!canvas) return;
+    
+    const ctx = canvas.getContext('2d');
+    let w, h;
+    
+    function resize(){
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function draw(){
+        ctx.clearRect(0,0,w,h);
+        requestAnimationFrame(draw);
+    }
+    draw();
+})();
+</script>
+
+</body>
+</html>
